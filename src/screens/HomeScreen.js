@@ -29,8 +29,6 @@ export default function HomeScreen() {
   const [ambiente, setAmbiente] = useState('DEV2');
   const [token, setToken] = useState('');
   const [manualToken, setManualToken] = useState('');
-  const [nuPasos, setNuPasos] = useState(3);
-  const [pasoActual, setPasoActual] = useState(2);
   const [flujoExterno, setFlujoExterno] = useState('');
 
   /* =========================
@@ -96,34 +94,10 @@ export default function HomeScreen() {
         tiOperacion: tipoOperacion,
         urlSource: ambiente,
         flujoExterno,
-        stepper: {
-          nuPasos,
-          pasoActual,
-        },
-        errores: {
-          reintentar: {
-            titulo: 'Reintentar',
-            descripcion:
-              'Ha ocurrido un error. Puedes intentar nuevamente presionando el botón a continuación.',
-            textoBoton: 'Reintentar',
-          },
-          limite_tiempo_alcanzado: {
-            titulo: 'Límite de tiempo alcanzado',
-            descripcion:
-              'El tiempo máximo para realizar esta operación ha expirado.',
-            textoBoton: 'Entendido',
-          },
-          limite_intentos_alcanzado: {
-            titulo: 'Límite de intentos alcanzado',
-            descripcion:
-              'Has alcanzado el número máximo de intentos permitidos.',
-            textoBoton: 'Entendido',
-          },
-        },
       };
 
       const result =
-        await ZyprotectabioModule.validacionFacialOcr(opciones);
+        await ZyprotectabioModule.onZyBioCapture(opciones);
 
       /* =========================
        * RESULTADOS
@@ -186,15 +160,6 @@ export default function HomeScreen() {
         placeholder="Token manual (opcional)"
         value={manualToken}
         onChangeText={setManualToken}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Paso actual"
-        value={String(pasoActual)}
-        onChangeText={(t) => setPasoActual(Number(t))}
-        keyboardType="numeric"
-        maxLength={1}
       />
 
       <TextInput
