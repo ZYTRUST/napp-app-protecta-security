@@ -147,7 +147,7 @@ export default function HomeScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder="Ambiente (DEV2, POC, DEVX, SIGN)"
+        placeholder="Ambiente (DEFAULT POC) (DEV2, POC, DEVX, SIGN)"
         value={ambiente}
         onChangeText={(text) => setAmbiente(text.toUpperCase())}
         autoCapitalize="characters"
