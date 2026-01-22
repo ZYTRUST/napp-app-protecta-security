@@ -111,7 +111,7 @@ android {
 
     namespace 'com.enriquebasurto.nappappprotectasecurity'
     defaultConfig {
-        applicationId 'com.enriquebasurto.nappappprotectasecurity'
+        applicationId 'com.nntp.prd.protecta'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -125,6 +125,25 @@ android {
             keyPassword 'android'
         }
     }
+
+    //*********Zytrust********
+    signingConfigs {
+        debug {
+            storeFile file("ztmobile.jks")
+            storePassword "zytrust00"
+            keyAlias "ztmobile"
+            keyPassword "zytrust00"
+        }
+        release {
+            storeFile file("ztmobile.jks")
+            storePassword "zytrust00"
+            keyAlias "ztmobile"
+            keyPassword "zytrust00"
+        }
+
+    }
+    //*******End Zytrust******
+    
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
