@@ -111,7 +111,7 @@ android {
 
     namespace 'com.enriquebasurto.nappappprotectasecurity'
     defaultConfig {
-        applicationId 'com.zy.identy.android.lib.test'
+        applicationId 'com.nntp.prd.protecta'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
